@@ -64,7 +64,7 @@ const (
 )
 
 var (
-	defaultHomeDir     = dcrutil.AppDataDir("dcrd", false)
+	defaultHomeDir     = dcrutil.AppDataDir("pfcd", false)
 	defaultConfigFile  = filepath.Join(defaultHomeDir, defaultConfigFilename)
 	defaultDataDir     = filepath.Join(defaultHomeDir, defaultDataDirname)
 	knownDbTypes       = database.SupportedDrivers()

@@ -7,11 +7,12 @@ package main
 
 import (
 	"github.com/decred/dcrd/chaincfg"
+	"github.com/picfight/pfcd/picfightcoin"
 )
 
 // activeNetParams is a pointer to the parameters specific to the
 // currently active Decred network.
-var activeNetParams = &mainNetParams
+var activeNetParams = &pfcNetParams
 
 // params is used to group parameters for various networks such as the main
 // network and test networks.
@@ -50,4 +51,9 @@ var simNetParams = params{
 var regNetParams = params{
 	Params:  &chaincfg.RegNetParams,
 	rpcPort: "18656",
+}
+
+var pfcNetParams = params{
+	Params:  &picfightcoin.PicFightCoinNetParams,
+	rpcPort: "9109",
 }
