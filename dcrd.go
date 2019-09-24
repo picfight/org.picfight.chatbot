@@ -16,7 +16,7 @@ import (
 	"time"
 
 	"github.com/decred/dcrd/blockchain/indexers"
-	"github.com/picfight/pfcd/version"
+	"github.com/picfight/pfcd/picfightcoin/version"
 )
 
 var cfg *config
