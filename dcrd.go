@@ -21,7 +21,7 @@ import (
 
 var cfg *config
 
-// winServiceMain is only invoked on Windows.  It detects when dcrd is running
+// winServiceMain is only invoked on Windows.  It detects when pfcd is running
 // as a service and reacts accordingly.
 var winServiceMain func() (bool, error)
 

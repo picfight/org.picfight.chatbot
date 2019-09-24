@@ -767,7 +767,7 @@ var helpDescsEnUS = map[string]string{
 	// VerifyChainCmd help.
 	"verifychain--synopsis": "Verifies the block chain database.\n" +
 		"The actual checks performed by the checklevel parameter are implementation specific.\n" +
-		"For dcrd this is:\n" +
+		"For pfcd this is:\n" +
 		"checklevel=0 - Look up each block and ensure it can be loaded from the database.\n" +
 		"checklevel=1 - Perform basic context-free sanity checks on each block.",
 	"verifychain-checklevel": "How thorough the block verification is",

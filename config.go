@@ -427,7 +427,7 @@ func createDefaultConfigFile(destPath string) error {
 // 	3) Load configuration file overwriting defaults with any specified options
 // 	4) Parse CLI options and overwrite/add any specified options
 //
-// The above results in dcrd functioning properly without any config settings
+// The above results in pfcd functioning properly without any config settings
 // while still allowing the user to override settings with config files and
 // command line options.  Command line options always take precedence.
 func loadConfig() (*config, []string, error) {
@@ -506,7 +506,7 @@ func loadConfig() (*config, []string, error) {
 		os.Exit(0)
 	}
 
-	// Update the home directory for dcrd if specified. Since the home
+	// Update the home directory for pfcd if specified. Since the home
 	// directory is updated, other variables need to be updated to
 	// reflect the new changes.
 	if preCfg.HomeDir != "" {

@@ -6,20 +6,20 @@
 /*
 dcrd is a full-node Decred implementation written in Go.
 
-The default options are sane for most users.  This means dcrd will work 'out of
+The default options are sane for most users.  This means pfcd will work 'out of
 the box' for most users.  However, there are also a wide variety of flags that
 can be used to control it.
 
 The following section provides a usage overview which enumerates the flags.  An
 interesting point to note is that the long form of all of these options
 (except -C) can be specified in a configuration file that is automatically
-parsed when dcrd starts up.  By default, the configuration file is located at
+parsed when pfcd starts up.  By default, the configuration file is located at
 ~/.dcrd/dcrd.conf on POSIX-style operating systems and %LOCALAPPDATA%\dcrd\dcrd.conf
 on Windows.  The -C (--configfile) flag, as shown below, can be used to override
 this location.
 
 Usage:
-  dcrd [OPTIONS]
+  pfcd [OPTIONS]
 
 Application Options:
   -V, --version             Display version information and exit
