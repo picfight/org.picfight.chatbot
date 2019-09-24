@@ -5,7 +5,6 @@ import (
 
 	"github.com/decred/dcrd/chaincfg"
 	"github.com/jfixby/difficulty"
-
 )
 
 // These variables are the chain proof-of-work limit parameters for each default
