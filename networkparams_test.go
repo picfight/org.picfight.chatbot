@@ -130,5 +130,5 @@ func TestDecredNetworkSettings(t *testing.T) {
 
 	checkGenesisBlockRespectsNetworkPowLimit(t, &picfightcoin.PicFightCoinNetParams)
 
-	checkAddressPrefixesAreConsistent(t, "Pj", &picfightcoin.PicFightCoinNetParams)
+	checkAddressPrefixesAreConsistent(t, "dPj", &picfightcoin.PicFightCoinNetParams)
 }
