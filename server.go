@@ -32,12 +32,12 @@ import (
 	"github.com/decred/dcrd/fees"
 	"github.com/decred/dcrd/gcs"
 	"github.com/decred/dcrd/gcs/blockcf"
-	"github.com/picfight/pfcd/version"
 	"github.com/decred/dcrd/mempool"
 	"github.com/decred/dcrd/mining"
 	"github.com/decred/dcrd/peer"
 	"github.com/decred/dcrd/txscript"
 	"github.com/decred/dcrd/wire"
+	"github.com/picfight/pfcd/version"
 )
 
 const (

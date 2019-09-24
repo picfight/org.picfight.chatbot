@@ -44,11 +44,11 @@ import (
 	"github.com/decred/dcrd/dcrec/secp256k1"
 	"github.com/decred/dcrd/dcrjson"
 	"github.com/decred/dcrd/dcrutil"
-	"github.com/picfight/pfcd/version"
 	"github.com/decred/dcrd/mempool"
 	"github.com/decred/dcrd/txscript"
 	"github.com/decred/dcrd/wire"
 	"github.com/jrick/bitset"
+	"github.com/picfight/pfcd/version"
 )
 
 // API version constants
