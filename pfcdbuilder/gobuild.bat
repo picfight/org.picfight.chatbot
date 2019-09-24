@@ -1,4 +1,4 @@
-cd D:\PICFIGHT\src\github.com\picfight\pfcwallet
+cd ..
 set GO111MODULE=on
 go build ./...
 go clean -testcache
