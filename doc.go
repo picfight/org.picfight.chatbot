@@ -130,7 +130,7 @@ Application Options:
                             default settings for the active network.
       --altdnsnames:        Specify additional dns names to use when
                             generating the rpc server certificate
-                            [supports DCRD_ALT_DNSNAMES environment variable]
+                            [supports PFCD_ALT_DNSNAMES environment variable]
 
 Help Options:
   -h, --help           Show this help message

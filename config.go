@@ -34,11 +34,11 @@ import (
 )
 
 const (
-	defaultConfigFilename        = "dcrd.conf"
+	defaultConfigFilename        = "pfcd.conf"
 	defaultDataDirname           = "data"
 	defaultLogLevel              = "info"
 	defaultLogDirname            = "logs"
-	defaultLogFilename           = "dcrd.log"
+	defaultLogFilename           = "pfcd.log"
 	defaultMaxSameIP             = 5
 	defaultMaxPeers              = 125
 	defaultBanDuration           = time.Hour * 24
@@ -169,7 +169,7 @@ type config struct {
 	PipeRx               uint          `long:"piperx" description:"File descriptor of read end pipe to enable parent -> child process communication"`
 	PipeTx               uint          `long:"pipetx" description:"File descriptor of write end pipe to enable parent <- child process communication"`
 	LifetimeEvents       bool          `long:"lifetimeevents" description:"Send lifetime notifications over the TX pipe"`
-	AltDNSNames          []string      `long:"altdnsnames" description:"Specify additional dns names to use when generating the rpc server certificate" env:"DCRD_ALT_DNSNAMES" env-delim:","`
+	AltDNSNames          []string      `long:"altdnsnames" description:"Specify additional dns names to use when generating the rpc server certificate" env:"PFCD_ALT_DNSNAMES" env-delim:","`
 	onionlookup          func(string) ([]net.IP, error)
 	lookup               func(string) ([]net.IP, error)
 	oniondial            func(string, string) (net.Conn, error)

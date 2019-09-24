@@ -14,4 +14,4 @@ COPY --from=0 /go/bin/* /bin/
 
 EXPOSE 9108
 
-CMD [ "dcrd" ]
+CMD [ "pfcd" ]
