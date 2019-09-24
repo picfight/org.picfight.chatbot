@@ -37,7 +37,7 @@ import (
 	"github.com/decred/dcrd/peer"
 	"github.com/decred/dcrd/txscript"
 	"github.com/decred/dcrd/wire"
-	"github.com/picfight/pfcd/version"
+	"github.com/picfight/pfcd/picfightcoin/version"
 )
 
 const (
