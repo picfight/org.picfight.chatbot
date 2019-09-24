@@ -8,6 +8,7 @@ package picfightcoin
 import (
 	"bytes"
 	"encoding/hex"
+	"github.com/jfixby/pin"
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
@@ -16,16 +17,8 @@ import (
 // TestGenesisBlock tests the genesis block of the main network for validity by
 // checking the encoded bytes and hashes.
 func TestGenesisBlock(t *testing.T) {
-	genesisBlockBytes, _ := hex.DecodeString("0100000000000000000000000000" +
-		"000000000000000000000000000000000000000000000dc101dfc3c6a2eb10ca0" +
-		"c5374e10d28feb53f7eabcc850511ceadb99174aa660000000000000000000000" +
-		"00000000000000000000000000000000000000000000000000000000000000000" +
-		"000000000ffff011b00c2eb0b000000000000000000000000a0d7b85600000000" +
-		"00000000000000000000000000000000000000000000000000000000000000000" +
-		"00000000101000000010000000000000000000000000000000000000000000000" +
-		"000000000000000000ffffffff00ffffffff01000000000000000000002080167" +
-		"9e98561ada96caec2949a5d41c4cab3851eb740d951c10ecbcf265c1fd9000000" +
-		"000000000001ffffffffffffffff00000000ffffffff02000000")
+	genesisHexString := "0100000000000000000000000000000000000000000000000000000000000000000000000dc101dfc3c6a2eb10ca0c5374e10d28feb53f7eabcc850511ceadb99174aa66000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffff011b00c2eb0b000000000000000000000000a0d7b856000000000000000000000000000000000000000000000000000000000000000000000000000000000101000000010000000000000000000000000000000000000000000000000000000000000000ffffffff00ffffffff010000000000000000000020801679e98561ada96caec2949a5d41c4cab3851eb740d951c10ecbcf265c1fd9000000000000000001ffffffffffffffff00000000ffffffff02000000"
+	genesisBlockBytes, _ := hex.DecodeString(genesisHexString)
 
 	// Encode the genesis block to raw bytes.
 	var buf bytes.Buffer
@@ -36,6 +29,8 @@ func TestGenesisBlock(t *testing.T) {
 
 	// Ensure the encoded block matches the expected bytes.
 	if !bytes.Equal(buf.Bytes(), genesisBlockBytes) {
+		pin.D("expected HexString", genesisHexString)
+		pin.D("genesis  HexString", hex.EncodeToString(buf.Bytes()))
 		t.Fatalf("TestGenesisBlock: Genesis block does not appear valid - "+
 			"got %v, want %v", spew.Sdump(buf.Bytes()),
 			spew.Sdump(genesisBlockBytes))
