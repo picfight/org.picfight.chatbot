@@ -32,9 +32,9 @@ const (
 
 var (
 	pfcdHomeDir            = dcrutil.AppDataDir("pfcd", false)
-	dcrctlHomeDir          = dcrutil.AppDataDir("dcrctl", false)
+	dcrctlHomeDir          = dcrutil.AppDataDir("pfcctl", false)
 	pfcwalletHomeDir       = dcrutil.AppDataDir("pfcwallet", false)
-	defaultConfigFile      = filepath.Join(dcrctlHomeDir, "dcrctl.conf")
+	defaultConfigFile      = filepath.Join(dcrctlHomeDir, "pfcctl.conf")
 	defaultRPCServer       = "localhost"
 	defaultWalletRPCServer = "localhost"
 	defaultRPCCertFile     = filepath.Join(pfcdHomeDir, "rpc.cert")
@@ -94,7 +94,7 @@ func listCommands() {
 	}
 }
 
-// config defines the configuration options for dcrctl.
+// config defines the configuration options for pfcctl.
 //
 // See loadConfig for details on the configuration load process.
 type config struct {
