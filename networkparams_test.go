@@ -6,6 +6,7 @@ package main
 
 import (
 	"bytes"
+	"github.com/picfight/pfcd/picfightcoin"
 	"strings"
 	"testing"
 
@@ -125,18 +126,9 @@ func checkAddressPrefixesAreConsistent(t *testing.T, privateKeyPrefix string, pa
 
 // TestDecredNetworkSettings checks Network-specific settings
 func TestDecredNetworkSettings(t *testing.T) {
-	checkPowLimitsAreConsistent(t, &chaincfg.MainNetParams)
-	checkPowLimitsAreConsistent(t, &chaincfg.TestNet3Params)
-	checkPowLimitsAreConsistent(t, &chaincfg.SimNetParams)
-	checkPowLimitsAreConsistent(t, &chaincfg.RegNetParams)
+	checkPowLimitsAreConsistent(t, &picfightcoin.PicFightCoinNetParams)
 
-	checkGenesisBlockRespectsNetworkPowLimit(t, &chaincfg.MainNetParams)
-	checkGenesisBlockRespectsNetworkPowLimit(t, &chaincfg.TestNet3Params)
-	checkGenesisBlockRespectsNetworkPowLimit(t, &chaincfg.SimNetParams)
-	checkGenesisBlockRespectsNetworkPowLimit(t, &chaincfg.RegNetParams)
+	checkGenesisBlockRespectsNetworkPowLimit(t, &picfightcoin.PicFightCoinNetParams)
 
-	checkAddressPrefixesAreConsistent(t, "Pm", &chaincfg.MainNetParams)
-	checkAddressPrefixesAreConsistent(t, "Pt", &chaincfg.TestNet3Params)
-	checkAddressPrefixesAreConsistent(t, "Ps", &chaincfg.SimNetParams)
-	checkAddressPrefixesAreConsistent(t, "Pr", &chaincfg.RegNetParams)
+	checkAddressPrefixesAreConsistent(t, "Pj", &picfightcoin.PicFightCoinNetParams)
 }

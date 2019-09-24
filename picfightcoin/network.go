@@ -79,12 +79,12 @@ var PicFightCoinNetParams = chaincfg.Params{
 
 	// Address encoding magics
 	NetworkAddressPrefix: "J",
-	PubKeyAddrID:         [2]byte{0x13, 0x86}, // starts with Dk
-	PubKeyHashAddrID:     [2]byte{0x07, 0x3f}, // starts with Ds
-	PKHEdwardsAddrID:     [2]byte{0x07, 0x1f}, // starts with De
-	PKHSchnorrAddrID:     [2]byte{0x07, 0x01}, // starts with DS
-	ScriptHashAddrID:     [2]byte{0x07, 0x1a}, // starts with Dc
-	PrivateKeyID:         [2]byte{0x22, 0xde}, // starts with Pm
+	PubKeyAddrID:         [2]byte{0x1b, 0x2d}, // starts with Jk
+	PubKeyHashAddrID:     [2]byte{0x0a, 0x0f}, // starts with Js
+	PKHEdwardsAddrID:     [2]byte{0x09, 0xef}, // starts with Je
+	PKHSchnorrAddrID:     [2]byte{0x09, 0xd1}, // starts with JS
+	ScriptHashAddrID:     [2]byte{0x09, 0xea}, // starts with Jc
+	PrivateKeyID:         [2]byte{0x22, 0xce}, // starts with Pj
 
 	// BIP32 hierarchical deterministic extended key magics
 	HDPrivateKeyID: [4]byte{0x02, 0xfd, 0xa4, 0xe8}, // starts with dprv
