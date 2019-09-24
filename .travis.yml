@@ -3,8 +3,6 @@ go:
   - 1.x
 
 sudo: required
-services:
-  - docker
 
 env:
   - GOVERSION=1.11
@@ -19,4 +17,4 @@ cache:
     - ~/.cache
 
 script:
-  - ./run_tests.sh docker
+  - ./run_tests.sh
