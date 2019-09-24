@@ -1,9 +1,11 @@
 package picfightcoin
 
 import (
+	"time"
+
 	"github.com/decred/dcrd/chaincfg"
 	"github.com/jfixby/difficulty"
-	"time"
+
 )
 
 // These variables are the chain proof-of-work limit parameters for each default
@@ -27,8 +29,8 @@ var PicFightCoinNetParams = chaincfg.Params{
 	// Chain parameters
 	GenesisBlock:             &genesisBlock,
 	GenesisHash:              &genesisHash,
-	PowLimit:                 mainPowLimit,
-	PowLimitBits:             0x1d00ffff,
+	PowLimit:                 picfightPowLimit.ToBigInt(),
+	PowLimitBits:             picfightPowLimit.ToCompact(),
 	ReduceMinDifficulty:      false,
 	MinDiffReductionTime:     0, // Does not apply since ReduceMinDifficulty false
 	GenerateSupported:        false,
