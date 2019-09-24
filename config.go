@@ -26,7 +26,7 @@ import (
 	"github.com/decred/dcrd/database"
 	_ "github.com/decred/dcrd/database/ffldb"
 	"github.com/decred/dcrd/dcrutil"
-	"github.com/decred/dcrd/internal/version"
+	"github.com/picfight/pfcd/version"
 	"github.com/decred/dcrd/mempool"
 	"github.com/decred/dcrd/sampleconfig"
 	"github.com/decred/slog"

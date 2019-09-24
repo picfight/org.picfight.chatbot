@@ -7,6 +7,7 @@ package main
 
 import (
 	"fmt"
+
 	"net/http"
 	_ "net/http/pprof"
 	"os"
@@ -16,7 +17,7 @@ import (
 	"time"
 
 	"github.com/decred/dcrd/blockchain/indexers"
-	"github.com/decred/dcrd/internal/version"
+	"github.com/picfight/pfcd/version"
 )
 
 var cfg *config

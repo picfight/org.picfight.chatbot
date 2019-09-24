@@ -32,7 +32,7 @@ import (
 	"github.com/decred/dcrd/fees"
 	"github.com/decred/dcrd/gcs"
 	"github.com/decred/dcrd/gcs/blockcf"
-	"github.com/decred/dcrd/internal/version"
+	"github.com/picfight/pfcd/version"
 	"github.com/decred/dcrd/mempool"
 	"github.com/decred/dcrd/mining"
 	"github.com/decred/dcrd/peer"
