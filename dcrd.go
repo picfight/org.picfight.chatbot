@@ -16,6 +16,8 @@ import (
 	"time"
 
 	"github.com/decred/dcrd/blockchain/indexers"
+	"github.com/decred/dcrd/internal/limits"
+	"github.com/decred/dcrd/internal/version"
 )
 
 var cfg *config
@@ -50,7 +52,7 @@ func dcrdMain(serverChan chan<- *server) error {
 	defer dcrdLog.Info("Shutdown complete")
 
 	// Show version and home dir at startup.
-	dcrdLog.Infof("Version %s (Go version %s %s/%s)", VersionString(),
+	dcrdLog.Infof("Version %s (Go version %s %s/%s)", version.String(),
 		runtime.Version(), runtime.GOOS, runtime.GOARCH)
 	dcrdLog.Infof("Home dir: %s", cfg.HomeDir)
 	if cfg.NoFileLogging {
@@ -221,6 +223,11 @@ func main() {
 	// usage.
 	debug.SetGCPercent(20)
 
+	// Up some limits.
+	if err := limits.SetLimits(); err != nil {
+		fmt.Fprintf(os.Stderr, "failed to set limits: %v\n", err)
+		os.Exit(1)
+	}
 
 	// Call serviceMain on Windows to handle running as a service.  When
 	// the return isService flag is true, exit now since we ran as a
