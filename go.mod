@@ -6,11 +6,10 @@ require (
 	github.com/btcsuite/goleveldb v1.0.0
 	github.com/btcsuite/snappy-go v1.0.0
 	github.com/btcsuite/winsvc v1.0.0
-	github.com/davecgh/go-spew v1.1.1
+	github.com/davecgh/go-spew v1.1.0
 	github.com/dchest/blake256 v1.0.0
 	github.com/dchest/siphash v1.2.1
 	github.com/decred/base58 v1.0.0
-	github.com/decred/dcrd v1.3.0
 	github.com/decred/dcrd/addrmgr v1.0.2
 	github.com/decred/dcrd/blockchain v1.1.1
 	github.com/decred/dcrd/blockchain/stake v1.1.0
