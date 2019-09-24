@@ -17,6 +17,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/decred/dcrwallet/version"
 	"io"
 	"io/ioutil"
 	"math"
@@ -3189,8 +3190,8 @@ func handleGetHeaders(s *rpcServer, cmd interface{}, closeChan <-chan struct{}) 
 func handleGetInfo(s *rpcServer, cmd interface{}, closeChan <-chan struct{}) (interface{}, error) {
 	best := s.chain.BestSnapshot()
 	ret := &dcrjson.InfoChainResult{
-		Version: int32(1000000*version.Major + 10000*version.Minor +
-			100*version.Patch),
+		Version: int32(1000000*Major + 10000*Minor +
+			100*Patch),
 		ProtocolVersion: int32(maxProtocolVersion),
 		Blocks:          best.Height,
 		TimeOffset:      int64(s.server.timeSource.Offset().Seconds()),
