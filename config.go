@@ -87,7 +87,7 @@ func minUint32(a, b uint32) uint32 {
 	return b
 }
 
-// config defines the configuration options for dcrd.
+// config defines the configuration options for pfcd.
 //
 // See loadConfig for details on the configuration load process.
 type config struct {

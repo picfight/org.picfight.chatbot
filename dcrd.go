@@ -25,7 +25,7 @@ var cfg *config
 // as a service and reacts accordingly.
 var winServiceMain func() (bool, error)
 
-// dcrdMain is the real main function for dcrd.  It is necessary to work around
+// dcrdMain is the real main function for pfcd.  It is necessary to work around
 // the fact that deferred functions do not run when os.Exit() is called.  The
 // optional serverChan parameter is mainly used by the service code to be
 // notified with the server once it is setup so it can gracefully stop it when

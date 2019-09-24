@@ -52,7 +52,7 @@ type dcrdService struct{}
 
 // Execute is the main entry point the winsvc package calls when receiving
 // information from the Windows service control manager.  It launches the
-// long-running dcrdMain (which is the real meat of dcrd), handles service
+// long-running dcrdMain (which is the real meat of pfcd), handles service
 // change requests, and notifies the service control manager of changes.
 func (s *dcrdService) Execute(args []string, r <-chan svc.ChangeRequest, changes chan<- svc.Status) (bool, uint32) {
 	// Service start is pending.
