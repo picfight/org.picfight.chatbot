@@ -29,7 +29,7 @@ func TestGenesisBlock(t *testing.T) {
 
 	// Encode the genesis block to raw bytes.
 	var buf bytes.Buffer
-	err := MainNetParams.GenesisBlock.Serialize(&buf)
+	err := PicFightCoinNetParams.GenesisBlock.Serialize(&buf)
 	if err != nil {
 		t.Fatalf("TestGenesisBlock: %v", err)
 	}
@@ -42,10 +42,10 @@ func TestGenesisBlock(t *testing.T) {
 	}
 
 	// Check hash of the block against expected hash.
-	hash := MainNetParams.GenesisBlock.BlockHash()
-	if !MainNetParams.GenesisHash.IsEqual(&hash) {
+	hash := PicFightCoinNetParams.GenesisBlock.BlockHash()
+	if !PicFightCoinNetParams.GenesisHash.IsEqual(&hash) {
 		t.Fatalf("TestGenesisBlock: Genesis block hash does not "+
 			"appear valid - got %v, want %v", spew.Sdump(hash),
-			spew.Sdump(MainNetParams.GenesisHash))
+			spew.Sdump(PicFightCoinNetParams.GenesisHash))
 	}
 }

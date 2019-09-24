@@ -2,13 +2,20 @@ package picfightcoin
 
 import (
 	"github.com/decred/dcrd/chaincfg"
+	"github.com/jfixby/difficulty"
 	"time"
 )
 
-const ()
+// These variables are the chain proof-of-work limit parameters for each default
+// network.
+var (
+	//  picfightPowLimit value for the PicFight coin network.
+	picfightPowLimit = difficulty.NewDifficultyFromHashString( //
+		"00 00 ff ff ffffffffffffffffffffffffffffffffffffffffffffffffffffffff")
+)
 
-// MainNetParams defines the network parameters for the main Decred network.
-var MainNetParams = chaincfg.Params{
+// PicFightCoinNetParams defines the network parameters for the main Decred network.
+var PicFightCoinNetParams = chaincfg.Params{
 	Name:        "picfightcoin",
 	Net:         PicfightCoinWire,
 	DefaultPort: "9108",
