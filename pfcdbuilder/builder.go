@@ -12,15 +12,15 @@ import (
 func main() {
 
 	set := &coinknife.Settings{
-		PathToInputRepo:      `D:\PICFIGHT\src\github.com\decred\dcrd`,
-		PathToOutputRepo:     `D:\PICFIGHT\src\github.com\picfight\pfcd`,
-		DoNotProcessAnyFiles: false,
+		PathToInputRepo:        `D:\PICFIGHT\src\github.com\decred\dcrd`,
+		PathToOutputRepo:       `D:\PICFIGHT\src\github.com\picfight\pfcd`,
+		DoNotProcessAnyFiles:   false,
 		DoNotProcessSubfolders: true,
-		FileNameProcessor:    nameGenerator,
-		IsFileProcessable:    processableFiles,
-		FileContentProcessor: fileGenerator,
-		IgnoredFiles:         ignoredFiles(),
-		InjectorsPath:        filepath.Join("", "code_injections"),
+		FileNameProcessor:      nameGenerator,
+		IsFileProcessable:      processableFiles,
+		FileContentProcessor:   fileGenerator,
+		IgnoredFiles:           ignoredFiles(),
+		InjectorsPath:          filepath.Join("", "code_injections"),
 	}
 
 	coinknife.Build(set)
