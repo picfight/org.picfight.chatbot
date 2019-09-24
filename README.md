@@ -8,11 +8,9 @@ pfcd
 
 ## PicFight coin Overview
 
-PicFight coin is a blockchain-based cryptocurrency based on Decred cryptocurrency.
+PicFight coin is based on Decred (https://decred.org).
 It utilizes a hybrid proof-of-work and proof-of-stake mining system.
 A unit of the currency is called a `picfight coin` (PFC).
-
-https://decred.org
 
 https://picfight.org
 
