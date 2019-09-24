@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
+GO=go
 GO111MODULE=on
-go version
 
-#  $GO clean -testcache
-
-go build -v ./...
-go test -v ./...
+  $GO version
+  $GO clean -testcache
+  $GO build -v ./...
+  $GO test -v ./...
