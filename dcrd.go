@@ -16,7 +16,6 @@ import (
 	"time"
 
 	"github.com/decred/dcrd/blockchain/indexers"
-	"github.com/decred/dcrd/internal/limits"
 	"github.com/decred/dcrd/internal/version"
 )
 
@@ -222,12 +221,6 @@ func main() {
 	// bursts.  This value was arrived at with the help of profiling live
 	// usage.
 	debug.SetGCPercent(20)
-
-	// Up some limits.
-	if err := limits.SetLimits(); err != nil {
-		fmt.Fprintf(os.Stderr, "failed to set limits: %v\n", err)
-		os.Exit(1)
-	}
 
 	// Call serviceMain on Windows to handle running as a service.  When
 	// the return isService flag is true, exit now since we ran as a
