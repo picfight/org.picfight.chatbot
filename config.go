@@ -26,11 +26,11 @@ import (
 	"github.com/decred/dcrd/database"
 	_ "github.com/decred/dcrd/database/ffldb"
 	"github.com/decred/dcrd/dcrutil"
-	"github.com/picfight/pfcd/picfightcoin/version"
 	"github.com/decred/dcrd/mempool"
-	"github.com/decred/dcrd/sampleconfig"
 	"github.com/decred/slog"
-	flags "github.com/jessevdk/go-flags"
+	"github.com/jessevdk/go-flags"
+	"github.com/picfight/pfcd/picfightcoin/sampleconfig"
+	"github.com/picfight/pfcd/picfightcoin/version"
 )
 
 const (
