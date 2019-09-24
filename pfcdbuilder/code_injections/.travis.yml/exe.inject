@@ -1,4 +1,0 @@
-before_install:
-  - chmod +x ./run_tests.sh
-
-install: true
