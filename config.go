@@ -10,6 +10,7 @@ import (
 	"encoding/base64"
 	"errors"
 	"fmt"
+	"github.com/picfight/pfcd/picfightcoin"
 	"net"
 	"os"
 	"os/user"
@@ -958,7 +959,7 @@ func loadConfig() (*config, []string, error) {
 
 	// Check mining addresses are valid and saved parsed versions.
 	for _, strAddr := range cfg.MiningAddrs {
-		addr, err := dcrutil.DecodeAddress(strAddr)
+		addr, err := picfightcoin.DecodeAddress(strAddr)
 		if err != nil {
 			str := "%s: mining address '%s' failed to decode: %v"
 			err := fmt.Errorf(str, funcName, strAddr, err)

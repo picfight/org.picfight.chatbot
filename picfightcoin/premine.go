@@ -6,7 +6,7 @@ import (
 )
 
 var BlockOneLedgerPicfightCoin = []*chaincfg.TokenPayout{
-	//{"RsHzbGt6YajuHpurtpqXXHz57LmYZK8w9tX", 100000 * 1e8},
+	{"JsCVh5SVDQovpW1dswaZNan2mfNWy6uRpPx", 9000000 * 1e8},
 }
 
 func hexDecode(hexStr string) []byte {
