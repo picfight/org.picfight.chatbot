@@ -9,7 +9,7 @@ public class ChatRequestResponse {
 		this.build = "10001";
 	}
 
-	public Object input;
+	public TelegramUpdate input;
 	public Object output;
 
 	public String build;

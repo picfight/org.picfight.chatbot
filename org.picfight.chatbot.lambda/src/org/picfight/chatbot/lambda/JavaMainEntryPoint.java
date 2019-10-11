@@ -1,14 +1,17 @@
 
 package org.picfight.chatbot.lambda;
 
+import org.telegram.telegrambots.exceptions.TelegramApiException;
+
 import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.sys.settings.ExecutionMode;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
 
 public class JavaMainEntryPoint {
 
-	public static void main (final String[] args) {
+	public static void main (final String[] args) throws TelegramApiException {
 		final ChatRequestResponse requesthandler = new ChatRequestResponse();
+		requesthandler.input = new TelegramUpdate();
 
 		if (ChatBotActionHandler.handler == null) {
 			ChatBotActionHandler.handler = new ChatBotActionHandler();

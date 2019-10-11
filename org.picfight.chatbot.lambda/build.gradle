@@ -26,9 +26,8 @@ dependencies {
       compile group: 'com.amazonaws', name: 'aws-lambda-java-core', version: '1.2.0'
       compile group: 'com.amazonaws', name: 'aws-lambda-java-events', version: '2.2.6'
       
-    compile 'com.google.guava:guava:23.0'
-    compile "org.telegram:telegrambots:3.2"
-
+       compile 'com.google.guava:guava:23.0'
+       compile "org.telegram:telegrambots:3.2"
 }	
 
 sourceSets {
