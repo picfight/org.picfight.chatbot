@@ -1,5 +1,13 @@
-apply plugin: "java"
-apply plugin: "maven"
+import com.amazonaws.services.lambda.model.Runtime
+import jp.classmethod.aws.gradle.lambda.AWSLambdaUpdateFunctionCodeTask
+import jp.classmethod.aws.gradle.lambda.AWSLambdaCreateFunctionTask
+
+plugins {
+    id 'java'
+    id 'maven'
+    id 'jp.classmethod.aws.lambda' version '0.35'
+}
+
 
 repositories {
           	 maven { url 'https://jitpack.io' }
@@ -17,6 +25,10 @@ dependencies {
 
       compile group: 'com.amazonaws', name: 'aws-lambda-java-core', version: '1.2.0'
       compile group: 'com.amazonaws', name: 'aws-lambda-java-events', version: '2.2.6'
+      
+    compile 'com.google.guava:guava:23.0'
+    compile "org.telegram:telegrambots:3.2"
+
 }	
 
 sourceSets {
@@ -29,3 +41,59 @@ sourceSets {
         }
     }
 }
+
+
+task writeVersion() << {
+    //def file = new File("$projectDir/version")
+    //file.createNewFile()
+    //file.text = "${version}"
+}
+processResources.dependsOn writeVersion
+
+jar {
+    from(configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }) {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+}
+
+aws {
+    profileName = 'default'
+}
+
+lambda {
+    region = "eu-central-1"
+}
+
+def lambda_name_production = "chatbot_picfight_org"
+def lambda_role = System.getenv('AWS_ROLE_ARN')
+def lambda_handler = "org.picfight.chatbot.lambda.LambdaEntryPoint"
+def build_folder_name = "build-003"
+
+task deploy_production(type: AWSLambdaUpdateFunctionCodeTask, dependsOn: build) {
+    functionName = lambda_name_production
+    zipFile = jar.archivePath
+    
+    def file = new File("$projectDir/deploy.log")
+    file.createNewFile()
+    def tofile = new File("$projectDir/../org.picfight.chatbot.lambda.builds/$build_folder_name")
+    
+    file.text = "$projectDir/../org.picfight.chatbot.lambda.builds/$build_folder_name"
+    copy {
+        from zipFile
+        into tofile
+    }
+    
+}
+
+task install_lambda_production(type: AWSLambdaCreateFunctionTask, dependsOn: build) {
+    functionName = lambda_name_production
+    handler = lambda_handler
+    zipFile = jar.archivePath
+    runtime = Runtime.Java8
+    role = lambda_role
+    timeout = 300
+    memorySize = 512
+}
+
