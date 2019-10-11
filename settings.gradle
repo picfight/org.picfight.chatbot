@@ -1,1 +1,2 @@
 include 'org.picfight.chatbot.lambda'
+include 'org.picfight.chatbot.lambda.builds'
