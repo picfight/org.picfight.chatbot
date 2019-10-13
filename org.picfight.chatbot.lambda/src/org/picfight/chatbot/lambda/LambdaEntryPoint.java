@@ -7,9 +7,9 @@ import java.io.OutputStream;
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 
-import org.telegram.telegrambots.api.objects.Message;
-import org.telegram.telegrambots.api.objects.Update;
-import org.telegram.telegrambots.exceptions.TelegramApiException;
+import org.telegram.telegrambots.meta.api.objects.Message;
+import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
@@ -17,9 +17,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.sys.settings.ExecutionMode;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
+import com.jfixby.scarabei.red.desktop.ScarabeiDesktop;
 
 public class LambdaEntryPoint implements RequestStreamHandler {
-
+	static {
+		ScarabeiDesktop.deploy();
+	}
 	private static final ObjectMapper objectReader = new ObjectMapper();
 
 	@Override

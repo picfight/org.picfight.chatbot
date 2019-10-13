@@ -1,7 +1,7 @@
 
 package org.picfight.chatbot.lambda;
 
-import org.telegram.telegrambots.bots.AbsSender;
+import org.telegram.telegrambots.meta.bots.AbsSender;
 
 public class TelegramFactory {
 

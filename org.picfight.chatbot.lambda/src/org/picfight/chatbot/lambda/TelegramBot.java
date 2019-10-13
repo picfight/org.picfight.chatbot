@@ -3,9 +3,9 @@ package org.picfight.chatbot.lambda;
 
 import java.util.function.Function;
 
-import org.telegram.telegrambots.api.methods.BotApiMethod;
-import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
+import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
+import org.telegram.telegrambots.meta.api.objects.Update;
 
 import com.jfixby.scarabei.api.debug.Debug;
 
