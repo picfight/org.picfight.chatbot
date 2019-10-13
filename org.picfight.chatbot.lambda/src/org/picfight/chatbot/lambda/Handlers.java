@@ -6,31 +6,33 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import com.jfixby.scarabei.api.collections.Collections;
+import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.collections.Map;
 import com.jfixby.scarabei.api.log.L;
+import com.jfixby.scarabei.api.strings.Strings;
 
 public class Handlers {
 
 	public static final Map<String, Handler> handlers = Collections.newMap();
 
-	static final Handler helloHandler = (bot, update, text) -> {
-		respond(bot, update, Responses.HelloStart);
+	static final Handler helloHandler = (final HandleArgs args) -> {
+		respond(args.bot, args.update, Responses.HelloStart);
 		return true;
 	};
-	static final Handler versionHandler = (bot, update, text) -> {
-		respond(bot, update, "Code version: " + Version.VERSION);
+	static final Handler versionHandler = (final HandleArgs args) -> {
+		respond(args.bot, args.update, "Code version: " + Version.VERSION);
 		return true;
 	};
-	static final Handler passportHandler = (bot, update, text) -> {
-		respond(bot, update, Responses.Passport);
+	static final Handler passportHandler = (final HandleArgs args) -> {
+		respond(args.bot, args.update, Responses.Passport);
 		return true;
 	};
-	static final Handler fightsHandler = (bot, update, text) -> {
-		respond(bot, update, Responses.Fights);
+	static final Handler fightsHandler = (final HandleArgs args) -> {
+		respond(args.bot, args.update, Responses.Fights);
 		return true;
 	};
-	static final Handler helpHandler = (bot, update, text) -> {
-		respond(bot, update, Responses.Help);
+	static final Handler helpHandler = (final HandleArgs args) -> {
+		respond(args.bot, args.update, Responses.Help);
 		return true;
 	};
 
@@ -40,16 +42,39 @@ public class Handlers {
 		handlers.put(Commands.PASSPORT, passportHandler);
 		handlers.put(Commands.FIGHTS, fightsHandler);
 		handlers.put(Commands.HELP, helpHandler);
+		handlers.put(Commands.VKPROFILE, VKProfile.vkProfileHandler);
 	}
 
 	public static boolean handle (final AbsSender bot, final TelegramUpdate update, final String text)
 		throws TelegramApiException {
+		if (text == null) {
+			return false;
+		}
+		if ("".equals(text)) {
+			return false;
+		}
 
-		final Handler h = handlers.get(text);
+		final List<String> lines = Strings.split(text, " ");
+
+		if (lines.size() == 0) {
+			return false;
+		}
+
+		final String command = lines.getElementAt(0);
+		lines.removeElementAt(0);
+
+		final Handler h = handlers.get(command);
 		if (h == null) {
 			return false;
 		}
-		return h.handle(bot, update, text);
+
+		final HandleArgs args = new HandleArgs();
+		args.bot = bot;
+		args.update = update;
+		args.command = command;
+		args.arguments = lines;
+
+		return h.handle(args);
 	}
 
 	public static final void respond (final AbsSender bot, final TelegramUpdate update, final String responseText)
@@ -66,6 +91,13 @@ public class Handlers {
 
 }
 
+class HandleArgs {
+	public AbsSender bot;
+	public TelegramUpdate update;
+	public String command;
+	public List<String> arguments;
+}
+
 interface Handler {
-	public boolean handle (final AbsSender bot, final TelegramUpdate update, final String text) throws TelegramApiException;
+	public boolean handle (HandleArgs args) throws TelegramApiException;
 }

@@ -3,9 +3,9 @@ package org.picfight.chatbot.lambda;
 
 public class Responses {
 
-	private static final String NEW_LINE = "\n";
+	public static final String NEW_LINE = "\n";
 
-	private static String lines (final String... lines) {
+	public static String lines (final String... lines) {
 		final StringBuilder b = new StringBuilder();
 		for (int i = 0; i < lines.length; i++) {
 			b.append(lines[i]);
@@ -16,9 +16,14 @@ public class Responses {
 
 	public static final String HelloStart = lines(//
 		"Привет пикфайтер!", //
-		"Задавай мне любые вопросы. Список тем прилагается:", //
-		Commands.PASSPORT, //
-		Commands.FIGHTS, //
+		"Доступные комманды:", //
+		// Commands.PASSPORT, //
+		// Commands.FIGHTS, //
+		"", //
+		"Привязать VK профиль:", //
+		Commands.VKPROFILE, //
+		"", //
+		"Помощь", //
 		Commands.HELP, //
 		""//
 	);

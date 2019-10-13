@@ -5,8 +5,9 @@ public class Commands {
 
 	public static final String START = "/start";
 	public static final String VERSION = "/version";
-	public static final String PASSPORT = "/паспорт";
-	public static final String FIGHTS = "/файты";
-	public static final String HELP = "/я чото П";
+	public static final String PASSPORT = "/passport";
+	public static final String FIGHTS = "/fights";
+	public static final String HELP = "/help";
+	public static final String VKPROFILE = "/vkprofile";
 
 }
