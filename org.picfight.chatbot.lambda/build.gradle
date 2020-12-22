@@ -41,14 +41,6 @@ sourceSets {
     }
 }
 
-
-task writeVersion() << {
-    //def file = new File("$projectDir/version")
-    //file.createNewFile()
-    //file.text = "${version}"
-}
-processResources.dependsOn writeVersion
-
 jar {
     from(configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }) {
         exclude "META-INF/*.SF"
